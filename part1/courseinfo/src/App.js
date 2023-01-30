@@ -1,4 +1,3 @@
-
 const Header = (props) => {
   console.log(props)
   return (
@@ -50,7 +49,7 @@ const App = () => {
         exercises: 14
       },
     ]
-}
+  }
 
   return (
     <>
