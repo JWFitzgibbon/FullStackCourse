@@ -8,8 +8,6 @@ const App = (props) => {
 
   const addNote = (event) => {
     event.preventDefault()
-    console.log('button clicked', event.target)
-
     const noteObject = {
       id: notes.length + 1,
       content: newNote,
@@ -19,16 +17,12 @@ const App = (props) => {
     setNewNote('')
   }
 
-  const handleNoteChange = (event) => {
-    console.log(event.target.value)
-    setNewNote(event.target.value)
-  }
+  const handleNoteChange = event => setNewNote(event.target.value)
 
   const notesToShow = showAll 
   ? notes 
   : notes.filter(note => note.important)
-  console.log(showAll)
-  
+
   return (
     <div>
       <h1>Notes</h1>
@@ -38,10 +32,12 @@ const App = (props) => {
             Show {showAll ? 'important' : 'all'}
           </button>
         </div>
+        
         {notesToShow.map(note => 
           <Note key={note.id} note={note} />
         )}
       </ul>
+
       <form onSubmit={addNote}>
         <input 
           value={newNote} 
