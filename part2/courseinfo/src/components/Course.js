@@ -29,7 +29,6 @@ const Header = ({ course }) => {
   
   const Course = ({ course }) => {
     const exercises = course.parts.map(part => part.exercises)
-  
     return (
       <div>
         <Header course={course} />
