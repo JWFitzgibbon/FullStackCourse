@@ -28,6 +28,7 @@ const App = (props) => {
   ? notes 
   : notes.filter(note => note.important)
   console.log(showAll)
+  
   return (
     <div>
       <h1>Notes</h1>
