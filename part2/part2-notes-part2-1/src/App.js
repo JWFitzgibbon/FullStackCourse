@@ -18,7 +18,7 @@ const App = (props) => {
   }
 
   const handleNoteChange = event => setNewNote(event.target.value)
-
+  
   const notesToShow = showAll 
   ? notes 
   : notes.filter(note => note.important)
@@ -26,18 +26,16 @@ const App = (props) => {
   return (
     <div>
       <h1>Notes</h1>
-      <ul>
-        <div>
+      <div>
           <button onClick={() => setShowAll(!showAll)}>
             Show {showAll ? 'important' : 'all'}
           </button>
         </div>
-        
+      <ul>
         {notesToShow.map(note => 
           <Note key={note.id} note={note} />
         )}
       </ul>
-
       <form onSubmit={addNote}>
         <input 
           value={newNote} 
