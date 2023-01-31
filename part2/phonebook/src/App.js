@@ -12,12 +12,16 @@ function App(props) {
 
   function addName(event) {
     event.preventDefault()
-    const nameObject = {
-      id: persons.length + 1,
-      name: newName
+    const nameList = persons.map(person => person.name)
+    if (!nameList.includes(newName)) {
+      const nameObject = {
+        name: newName
+      }
+      setPersons(persons.concat(nameObject))
+      setNewName('')
+    } else {
+      alert(`${newName} is already added to phonebook`)
     }
-    setPersons(persons.concat(nameObject))
-    setNewName('')
   }
 
   return(
@@ -36,7 +40,7 @@ function App(props) {
       <h2>Numbers</h2>
       <ul>
         {persons.map(person =>
-          <Person key={person.id} person={person}/>  
+          <Person key={person.name} person={person}/>  
         )}
       </ul>
     </div>
